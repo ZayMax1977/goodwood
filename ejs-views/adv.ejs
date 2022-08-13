@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/block-head.ejs') %>
+
+
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/adv.css">
+    <link rel="stylesheet" href="../css/advs.css">
+
+    <script src="../js/menu.js"></script>
+
+    <script src="../js/reclama.js"></script>
+    <script src="../js/posts.js"></script>
+    <script src="../js/list-service.js"></script>
+
+    <link rel="stylesheet" href="../css/post.css">
+
+        <title>GoodWood | <%= title %> got_advs.art 
+        </title>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+        <%- include('./partials/block-popular.ejs') %>
+
+            <div class="main-block">
+                <div class="filter">
+
+                </div>
+
+                <div class="  one-adv">
+
+                    <div class="line-1">
+                        <div><p class="line"><h3><span class="title-blue"><%= got_advs.title_adv %>.</span></h3></p></div>
+                        <% if (got_advs.category == 'Транспортные средства') { %>
+                            <div><span class="title-blue-color"><%= got_advs.mark_rooms[0] %>: <%= got_advs.model_squere[0] %>. <%= got_advs.autobody_balcony[0] %>. Год:<%= got_advs.year_floor[0] %>.  Цвет: <%= got_advs.color_street[0] %>. Пробег: <%= got_advs.running_numberfloors[0] %></span></div>
+                        <%  }else if (got_advs.category == 'Недвижимость'){ %>
+                            <div><span class="title-blue-color"><%= got_advs.mark_rooms[1] %>-ком. <%= got_advs.model_squere[1] %> м2. Балкон/Лоджия:<%= got_advs.autobody_balcony[1] %>. Этаж:<%= got_advs.year_floor[1] %>. Этажность: <%= got_advs.running_numberfloors[1] %></span></div>
+                        <% } %>
+                        <div><p class="line"><span class="title-blue">Арт:  <%= got_advs.art %> </span> </p></div>
+
+                    </div>
+
+                    <div class="line-2">
+                        <div ><p class="line"><span class="title-blue">Регион: <%= got_advs.stat %></span></p></div>
+                        <div ><p class="line"><span class="title-blue">Город: <%= got_advs.town %></span></p></div>
+                    </div>
+
+                    <div class="line-3">
+                        <div><p class="line"><span class="title-blue"> тел: <%= got_advs.phone %>, <%= got_advs.name %> </span></p></div>
+                        <div><p class="line"><span class="title-blue">Дата подачи:  <%= got_advs.date %></span></p></div>
+                    </div>
+
+                    <div><p class="line text"><%= got_advs.content %></p></div>
+
+                    <div ><p class="line"><span class="title-blue">Цена: <%= got_advs.price %>  </span>  &nbsp; руб.</p></div>
+
+                    <div><p class="line"><span class="title-blue">Фото:</span></p></div>
+                    
+                    <div class="block-photo">
+                        <div class="block-main-foto-zoom">
+                            <img src="../<%= got_advs.file[0] %>" alt=""  height="540" id="zoom"  onclick = 'make_zoom_minus()'>
+                            <!-- width="840" -->
+                        </div>
+                        <div class="block-main-foto"  >
+                            <img  src="../<%= got_advs.file[0] %>" alt=""   height="280" id="main_photo" onclick = 'make_zoom_plus(this.src)'>
+                        
+                            <!-- width="420" -->
+                        </div>
+                        <div class="block-small-photos">
+                            <% if ( got_advs.file.length) { %>
+                                <% got_advs.file.forEach((item,i) =>{ %>
+                                    <% if (i!= 0){ %>
+                                        <img src="../<%= item %>" alt=""  height="80" id="small_photo<%= i %>"  onclick = 'change_img(this.src, this.id)'>                                          
+                                        <!-- width="130" -->
+                                        <% } %>
+                                <% }) %>    
+                            <% } %>
+                        </div>
+                    </div>
+                </div>       
+                <div class="reclama two">
+                    <img src="../img/menu.png" onclick="open_categoris_service()" class='icon-menu menu-reclama'
+                        alt="menu" title="Выбрать категорию">
+                    <img src="../img/menu-green.png" onclick="open_categoris_service()" class='green' alt="menu">
+                    <div class="dropdown" id='icon-menu'>
+                        <ul>
+                            <li onclick="get_value_position(this.textContent) " id="point-clear">Отчистить</li>
+
+                            <li onclick="get_value_position(this.textContent) " id="point-zastr">Застройщики</li>
+
+
+                            <li onclick="get_value_position(this.textContent)" id="point-law">Услуги юриста</li>
+
+                            <li onclick="get_value_position(this.textContent)" id="point-realty">Агенства Недвижимости
+                            </li>
+
+
+                            <li onclick="get_value_position(this.textContent)" id="point-bilding">Строительные услуги
+                            </li>
+
+
+                            <li onclick="get_value_position(this.textContent)" id="point-transport">Транспортные услуги
+                            </li>
+
+
+                            <li onclick="get_value_position(this.textContent)">Гостиницы</li>
+
+                        </ul>
+                    </div>
+
+
+
+                    <div><span class="reclama-main-title"><b>Услуги </b></span></div>
+
+                    <div class="block-point-service">
+                    </div>
+
+                    <!-- <div class="reclama-main-title new-position"><b>Найти регион:</b></div> -->
+                    <!-- <input type="text" id="state" name="stat" onkeyup="catch_simbol_region_reclama(event)" placeholder="Пример: Ростовская область" required>
+        <div>
+            <div id="coincidence_state1"  onclick="agree()" class="st"></div>
+        </div> -->
+
+                    <div><span class="reclama-main-title new-position" id="for_reclama">
+                        <%= got_advs.stat  %>
+                        </span></div>
+                    <hr>
+                    <ul id="list_services">
+
+                    </ul>
+                </div>
+               
+            </div>
+
+ <%- include('./partials/footer.ejs') %>
+<script>
+    function change_img(src,id){
+        var main = document.getElementById('main_photo');
+        var small = document.getElementById(id);
+        var q = main.src
+        main.src = src;
+        small.src = q;
+
+    }
+    function make_zoom_plus(e){
+        console.log(e);
+
+        var el = document.getElementById('zoom');
+        console.log(el.src);
+        el.src = e;
+        var el1 = document.getElementsByClassName('block-main-foto-zoom');
+        el1[0].style.display = 'block';
+    }
+    function make_zoom_minus(){
+        var el = document.getElementsByClassName('block-main-foto-zoom');
+        el[0].style.display = 'none';
+    }
+    if (window.performance) {
+                        // let radios = document.getElementById('must_to_choise');
+                        // radios.checked = 'checked';
+                            get_list('<%= got_advs.stat %>');
+                    }
+
+</script>
+</body>
+
+</html>

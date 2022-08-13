@@ -1,0 +1,20 @@
+.block-contacts{
+    border: 1px solid white;
+    /* height: 585px; */
+    min-height: 80vh;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width:20%;
+    /* min-width: 280px; */
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    color: white;
+}
+.block-contacts a {
+    text-decoration: none;
+    color: white;
+}
+.block-contacts p{
+    margin-left: 7%;
+}

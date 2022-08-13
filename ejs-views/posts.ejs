@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/block-head.ejs') %>
+
+    <link rel="stylesheet" href="css/adv.css">
+    <link rel="stylesheet" href="css/advs.css">
+    <link rel="stylesheet" href="css/post.css">
+
+
+    <script src="js/reclama.js"></script>
+    <script src="js/posts.js"></script>
+
+
+
+    <title>GoodWood | <%= title %></title>
+    <style>
+        .all-posts{
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/block-popular.ejs') %>
+
+
+    <div class="main-block">
+        <div class="filter"></div>
+        <div class="all-adv all-posts">
+           
+            
+                <img src="img/menu.png"  onclick="open_categoris_service1()"  class='icon-menu1 menu-reclama1'    alt="menu" title="Выбрать категорию">
+                <img src="img/menu-green.png"   onclick="open_categoris_service1()"  class='green1' alt="menu">
+                
+                <div class="dropdown-posts"  id='icon-menu1' >
+                    <ul >
+                        <li>Все статьи</li>
+
+                        <li>Трудовые отношения</li>
+                        <li>Гражданские отношения</li>
+                        <li>Жилищные отношения</li>
+                        <li>Налоговые отношения</li>
+                        <li>Земельные отношения</li>
+                        <li>Семейные отношения</li>
+                        <li>Защита прав потребителя</li>
+                        <li>Вопросы сферы недвижимости</li>
+                        <li>Маршрутами путешественника</li>
+                        <li>"Черный список"</li>
+                    </ul>             
+                </div>
+
+                <% if (posts.length) { %>
+                    <% posts.forEach(({title,id, category,date,content,author,source}) =>{ %>
+                <article class="post">
+                   
+                            
+                            <div class="title-post">  <h2><%= title %></h2></div>
+                            <div class="block-category-date">
+                                <div class="category-post"> <i>Категория:</i> <span><%= category %></span></div>
+                                <div class="date-post"><span><%= date %></span></div>
+                            </div>
+                            <div class="content-post"><p><%= content %> <span class="read-more"><a href="/posts/<%= id %>">...Читать далее</a></span></p></div>
+                            <div class="block-auther-source">
+                                <div class="auther-post"><i><span><%= author %>
+                                </span></i></div>
+                                <div class="source-post"><i>Источник:&nbsp;</i>  <span><%= source %></span></div>
+                            </div>
+                                
+                    
+                       
+
+                </article>
+                <% }) %>    
+                <% } %>
+                <!-- <article class="post">
+                    <div class="title-post">  <h2>Post 2</h2></div>
+                    <div class="block-category-date">
+                        <div class="category-post"> <i>Категория:</i> <span>Трудовые отношения</span></div>
+                        <div class="date-post"><span>23.08.2020</div>
+                    </div>
+                    <div class="content-post"><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea porro 
+                        sit deserunt libero dolorem earum, ut ipsa nam quisquam mollitia iusto, repellat architecto.
+                         Nesciunt quasi porro voluptatum eum magni ipsa aspernatur libero, neque quisquam 
+                         tempora?<span class="read-more"><a href='/posts/2'>...Читать далее</a></span></p></div>
+                    <div class="block-auther-source">
+                        <div class="auther-post"><i><span>Симонов К.</span></i></div>
+                        <div class="source-post"><i>Источник:&nbsp;</i>  <span>https://www.rubion.com</span></div>
+                    </div>
+
+            </article>
+            <article class="post">
+                <div class="title-post">  <h2>Post 3</h2></div>
+                <div class="block-category-date">
+                    <div class="category-post"> <i>Категория:</i> <span>Налоговые отношения</span></div>
+                    <div class="date-post"><span>24.09.2022</span></div>
+                </div>
+                <div class="content-post"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                     Pariatur quasi accusamus ex ad quos exercitationem cupiditate consectetur iusto ab 
+                     dicta magni voluptates deserunt delectus, quod aut architecto? Atque amet animi 
+                     earum eligendi itaque ipsum hic?<span class="read-more"><a href='/posts/3'>...Читать далее</a></span></p></div>
+                <div class="block-auther-source">
+                    <div class="auther-post"><i><span>Никифоров Н.</span></i></div>
+                    <div class="source-post"><i>Источник:&nbsp;</i>  <span>https://www.cerion.net</span></div>
+                </div>
+
+        </article> -->
+            
+         </div>   
+
+        <div class="reclama two">
+            <div><span class="reclama-main-title"><b>Услуги </b></span></div>
+            <div ><span class="reclama-main-title new-position"><i>Город: <span>Краснодар</span></i></span></div>
+                <img src="img/menu.png"  onclick="open_categoris_service()"  class='icon-menu menu-reclama'    alt="menu" title="Выбрать категорию">
+                <img src="img/menu-green.png"   onclick="open_categoris_service()"  class='green' alt="menu">
+            <div class="dropdown"  id='icon-menu' >
+                <ul >
+                    <a href=""><li>Застройщики</li></a>
+                    <a href=""><li>Услуги юриста</li></a>
+                    <a href=""><li>Агенства Недвижимости</li></a>
+                    <a href=""><li>Строительные услуги</li></a>
+                    <a href=""><li>Транспортные услуги</li></a>
+                    <a href=""><li>Гостиницы</li></a>
+                </ul>
+            </div>
+        <hr>
+               
+
+       </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>
+
+  

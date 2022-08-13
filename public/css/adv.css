@@ -1,0 +1,123 @@
+/* body{
+    height: auto;
+} */
+.main-block{
+    height: auto;
+    /* display: flex; */
+
+}
+.one-adv{
+    border: 1px solid white;
+    margin-top:.6em ;
+    color:white;
+    font-style: italic;
+    /* height: 100%; */
+    width:80%;
+    /* padding:1em; */
+    /* padding-bottom: 0; */
+    overflow: auto;
+
+}
+.text{
+    font-style: normal;
+}
+
+.title-blue{
+    color:#193AEC;
+    font-weight: bold;
+} 
+.line{
+    padding-left: 1em;
+    padding-right: 1em;
+    /* color:#193AEC; */
+
+}
+.line-1, .line-2, .line-3{
+    display: flex;
+    justify-content: space-between;
+}
+.line-1 > div {
+    padding-left: 1em;
+}
+/* -------------------------------блок фото-------------------- */
+#main_photo{
+    object-fit: cover;
+    width: 100%;
+    height: 100%; 
+}
+.block-photo{
+    /* border: 1px solid white; */
+    display: grid;
+    grid-template-columns:420px auto;
+    grid-template-rows: 280px;
+    /* padding-bottom: 5px; */
+    position: relative;
+}
+.block-main-foto{
+    /* border: 1px solid white; */
+    margin-bottom: -10px;
+    cursor: zoom-in;
+    position: relative;
+    /* margin: auto; */
+    /* overflow: hidden; */
+
+
+}
+.block-main-foto-zoom{
+    
+    position:absolute;
+    bottom:  0;
+    left: 0;
+    z-index: 100;
+    display: none;
+    cursor: zoom-out;
+    /* position: relative; */
+
+}
+/* #zoom, .main-foto{
+    image-rendering: auto;
+} */
+/* .zoom{
+    position:absolute;
+    top: 5px;
+    right: 5px;
+} */
+.block-main-foto > div{
+    position:absolute;
+    top: 5px;
+    right: 5px;
+}
+.block-main-foto  div:first-child img {
+    opacity: 0.7;
+    cursor: pointer;
+
+}
+.block-small-photos{
+    
+    display:grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fill, 131px);
+  grid-template-rows: 80px 80px 80px;
+    gap: 15px 5px;
+    padding:5px;
+    padding-top: 0;
+    padding-right:0 ;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+}
+/* .block-small-photos div{ */
+    /* border: 1px solid white; */
+    /* width: 133.2px;
+    height: 86.6; */
+    /* background-size: cover; */
+    
+
+
+/* } */
+.block-small-photos img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;  
+}

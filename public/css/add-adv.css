@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.block-create-add{
+    width: 60%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 1em;
+    color:white;
+
+}
+/* .title{
+    color:#193AEC;
+} */
+.main-title{
+    padding-left: .8em;
+    /* padding-top: 0.8em; */
+}
+
+/* ---------------------линия ноль----------------------- */
+.title-create-adv >  p{
+    
+    padding-top: 1.2%;
+}
+/* --------------первая линия----------------------------- */
+.first{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr;
+    margin:10px;
+    border: 1px solid white;
+   
+}
+.first > div{
+    margin: 10px;
+    
+}
+.first > div > div{
+    margin: 10px;
+
+}
+
+.block-create-add  p  {
+    margin: 0;
+    font-size: 0.9em;
+
+}
+
+/* ------------вторая линия------------------ */
+#hidden_mark{
+    display:none;
+}
+.decor{
+    /* font-size:1.2em; */
+    color:#193AEC;
+}
+
+.dropdownModel{
+    position:absolute;
+    margin-top: 29px;
+    top:10px;
+    left:1px;
+    border:1px solid white;
+    display: none;
+    width: auto;
+    background: #2E8CE3;
+    line-height:0.7em;
+    padding-right: 1em;
+    font-size: 1.1em;
+    font-family: 'Lato', sans-serif;
+
+}
+.dropdownModel li{
+    list-style-type: none;
+    text-decoration: none;
+    color:#FFFFFF;
+    font-size: 0.83em;
+    padding: 5px 10px;
+    cursor: pointer;
+
+}
+.dropdownModel ul{
+    padding-left: 15px; 
+    margin: 5px;
+}
+.dropdownModel li:hover{
+    color:#15FC0A;
+}    
+
+.discribe-for-car{
+    /* display:flex; */
+    /* justify-content: space-evenly; */
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position:relative;
+    border: 1px solid white;
+    margin:10px;
+    padding:1em;
+    padding-bottom: 0;
+    padding-left: 6em;
+
+}
+.drop-string{
+    position:absolute;
+    top:14%;
+    left:8%;
+    cursor: pointer;
+    /* padding-top: 1em; */
+
+}
+.drop-string-green{
+    position:absolute;
+    top:14%;
+    left:8%;
+    cursor: pointer;
+    display:none;
+
+}
+#reset_model{
+    position:absolute;
+    top:13%; 
+    /* left:27%;  */
+    display: none;
+    cursor: pointer;
+}
+
+
+.for-flat{
+    display:none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position:relative;
+    border: 1px solid white;
+    margin:10px;
+    padding:1em;
+    padding-bottom: 0;
+    padding-left: 6em;
+
+}
+.second-line{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        'title title title title title title'
+        'sell buy change give rent rentout';
+    margin:10px;
+    border: 1px solid white;
+    /* display:none; */
+
+}
+.second-line-title{
+    grid-area: title;
+    text-align: left;
+    margin-left: 1.5em;
+    margin-top:10px;
+}
+.sell{
+    grid-area: sell;
+    text-align: left;
+    margin-left: 1.3em;
+}
+.buy{
+    grid-area: buy;
+    text-align: left;
+    margin-left: 1.3em;
+}
+.rent{
+    grid-area: rent;
+    text-align: left;
+    margin-left: 1.3em;
+}
+.rentout{
+    grid-area: rentout;
+    text-align: left;
+    margin-left: 1.3em;
+}
+
+.change{
+    grid-area: change;
+    text-align: left;
+    margin-left: 1.3em;
+}
+.give{
+    grid-area: give;
+    text-align: left;
+    margin-left: 1.3em;
+}
+.second-line-for-job {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        'title title'
+        'leftt rightt';
+    margin:10px;
+    border: 1px solid white;
+    display: none;
+}
+.find-work{
+    grid-area: leftt;
+    text-align: left;
+    margin-left: 1.3em;
+}
+.find-woker{
+    grid-area: rightt;
+    text-align: left;
+    margin-left: 1.3em;
+}
+.second-line-title{
+    grid-area: title;
+    text-align: left;
+    margin-left: 1.3em;
+}
+/* -----------------третья и четвертая линия,------------------------------------ */
+.third-line, .fourth-line {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        'titleleft titleright'
+        'subject town';
+    margin:10px;
+    border: 1px solid white;
+
+}
+
+.third-line-title-right,  .fourth-line-title-right{
+    grid-area: titleright;
+    text-align: left;
+    margin-left: 1.3em;
+    margin-left: 1.5em;
+    margin-top:10px;
+    /* border:1px dashed white; */
+
+}
+.third-line-title-left,  .fourth-line-title-left{
+    grid-area: titleleft;
+    text-align: left;
+    margin-left: 1.3em;
+    margin-left: 1.5em;
+    margin-top:10px;
+    /* border:1px dashed white; */
+
+}
+.third-line-left, .fourth-line-left{
+    grid-area: subject;
+    text-align: left;
+    margin-left: 1.3em;
+    /* border:1px dashed white; */
+
+
+
+}
+.third-line-right, .fourth-line-right{
+    grid-area: town;
+    text-align: left;
+    margin-left: 1.3em;
+    /* border:1px dashed white; */
+
+
+}
+.st{
+    /* border: 1px dashed white; */
+    width: 70%;
+    height: 2em;
+    cursor: pointer;
+
+}
+
+#stat,#town,#name,#phone, #filter-town,
+#filter-art,#filter-region,
+#car_model,#car_year,#car_body,#car_color,#car_running,
+#rooms,#square,#floor,#balcony,#street,#floors,#title_adv{
+    background: none;
+    height:2em;
+    color:white;
+    margin-bottom: 0.8em;
+    border: 1px solid  #193AEC;
+    padding: 0 0.2em;
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    margin-bottom: 0.8em;
+    width: 70%;
+    margin-right: 2em;
+}
+#title_adv{
+    margin-left: 1.3em;
+    width: 95%;
+}
+#car_model,#car_year,#car_body,#car_color,#car_running{
+    
+    width: 60%;
+}
+
+#stat:hover, #name:hover, #town:hover,
+ #phone:hover, .textarea:hover, #price:hover,
+ #car_year:hover,#car_body:hover,#car_color:hover,#car_running:hover,
+ #car_model:hover,#rooms:hover,#square:hover,#floor:hover,#balcony:hover,
+ #street:hover,#floors:hover,#title_adv:hover{
+    border: 1px solid #15FC0A;
+    cursor: pointer; 
+}
+.confirmation{
+    display: flex;
+}
+input:-moz-placeholder {  color: rgb(228, 219, 219);  }
+input::-webkit-input-placeholder { color: rgb(228, 219, 219); }
+/* ----------------------------------пятая линия(текст объявления)--------------------------------------  */
+.fifth-line{
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 3fr;
+    
+    margin:10px;
+    border: 1px solid white;
+}
+.fifth-line-title,.six-line-title, .seven-line-title{
+    margin-left: 1.5em;
+    margin-top:10px;
+}
+.textarea{
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-bottom: 1.5em;
+    height:100px;
+    font: inherit;
+    background:none;
+    border: 1px solid  #193AEC;
+    color:white;
+}
+
+/* ------------------------------линия цена------------------ */
+#price{
+    background: none;
+    height:2em;
+    color:white;
+    margin-bottom: 0.8em;
+    border: 1px solid  #193AEC;
+    padding: 0 0.2em;
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+  
+    width: 40%;
+    margin-right: 2em;
+    margin-left: 1.5em;
+}
+
+.six-line{
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 2fr;
+    
+    margin:10px;
+    border: 1px solid white;
+}
+/* ----------------------------------линия фото---------------------------------- */
+.seven-line{
+    display:block;
+    margin:10px;
+    border: 1px solid white;
+}
+.seven-line-foto{
+    display: flex;
+    position: relative;
+    height:2em;
+    margin-bottom: 1.3em;
+    font: inherit;
+  
+    width: 40%;
+    margin-right: 2em;
+    margin-left: 1.5em;
+}
+#file{
+    opacity:0;
+    margin-left: 45px;
+  
+}
+#file:hover{
+    cursor: pointer;
+
+}
+input[type=file] {
+    width: 100px;
+
+  }
+
+.instant-button{
+    position: absolute;
+    width:100px;
+    height:1.5em;
+    left: 3px;
+    top:0;
+    z-index: -10;
+    padding-left: 0.8em;
+
+}
+.plus{
+    width:50px;
+    cursor: pointer;
+}
+.plus:hover{
+    color: #15FC0A;
+}
+.choose-files{
+    width:100%;
+    margin-left: 2em;
+    margin-bottom: 1em;
+
+}
+
+/* ---------------кнопки отчистить и отослать------------------------------------------------------- */
+.button-find-clear{
+    background: #fa5b16;
+    padding: 5px 7px;
+    font-size: .8em; 
+    font-weight: bold;
+    color: #FFFFFF;
+    border: outset 2px #f9c38a;
+    cursor: pointer; 
+    margin-left: 0.5em;
+}
+.button-find-clear:hover { 
+background: #fa5b16;
+background: -moz-linear-gradient(0% 100% 90deg, #fa5b16, #59C2FF);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9c38a), to(#fa5b16));
+}
+  
+.button-find-clear:active {
+background:#15FC0A;
+}
+.clear-send{
+    display:flex;
+
+}
+.button-find-clear{
+    text-align:center;
+    width: 50%;
+}
+.button-find-send{
+    text-align:center;
+    width: 50%;
+}
+/* -------------------------------------------медиазапросы--------------------------------------------- */
+
+@media screen and (max-width: 720px) {
+    
+    .second-line{
+        display: grid;
+        
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr  1fr 1fr 1fr ;
+        grid-template-areas: 
+            'title'
+            'sell'
+            'buy'
+            'change'
+            'give';
+        margin:10px;
+        border: 1px solid white;
+    
+    }
+    .third-line  {
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 2fr 1fr 1fr;
+        grid-template-areas: 
+            'titleleft' 
+            'subject'
+            'titleright'
+             'town';
+        margin:10px;
+        border: 1px solid white;
+    
+    }
+    .fourth-line {
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+            'titleleft' 
+            'subject'
+            'titleright'
+             'town';
+        margin:10px;
+        border: 1px solid white;
+    
+    }
+
+  
+   
+  }
+  @media screen and (max-width: 850px) {
+      .plus{
+          margin-left: 10%;
+      }
+      
+  }
+  @media screen and (max-width: 940px) {
+    .block-create-add{
+        width: auto; 
+    }
+  }
+  @media screen and (max-width: 500px) {
+    #name,#phone,#stat,#town{
+        width: 94%; 
+    }
+  }
+  @media screen and (max-width: 520px) {
+    .plus{
+        margin-left: 5%;
+    }
+    .instant-button{
+        width:70px;
+    }
+    
+}
+@media screen and (max-width: 430px) {
+    .seven-line-foto{
+        display:inline;
+        text-align: right;
+    }
+    .plus{
+        margin-left: 9%;
+    }
+}

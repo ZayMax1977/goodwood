@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/block-head.ejs') %>
+
+    
+    <link rel="stylesheet" href="css/contacts.css">
+
+
+
+    <title>GoodWood | <%= title %></title>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+
+    <div class="main-block">
+        <div class="block-contacts">
+            <ul>
+                <% if (contacts.length) { %>
+                    <% contacts.forEach(({link, name}) =>{ %>
+                        <li>
+                            <a href="<%= link %>"><%= name %></a>
+                        </li>    
+                    <% }) %>    
+                   <% } %>
+
+                
+            </ul>
+            <p>email: zamax77@mail.ru</p>
+        </div>
+
+         
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+    <!-- <script>
+        if (window.performance) {
+            let radios = document.getElementById('must_to_choise');
+            radios.checked = 'checked';
+           
+        }
+    </script> -->
+</body>
+
+</html>

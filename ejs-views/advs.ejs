@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/block-head.ejs') %>
+
+
+        <link rel="stylesheet" href="../css/advs.css">
+        <link rel="stylesheet" href="../css/add-adv.css">
+
+        <script src="../js/reclama.js"></script>
+        <script src="../js/filter.js"></script>
+        <script src="../js/get-point-reclama.js"></script>
+        <script src="../js/sub-filter.js"></script>
+        <script src="../js/list-service.js"></script>
+
+
+
+
+
+        <title>GoodWood | <%= title %>
+        </title>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+        <%- include('./partials/block-popular.ejs') %>
+
+
+            <div class="main-block">
+
+
+                <div class="filter decor">
+                    <% if (got_advs.length) { %>
+                        <form action="/advs/<%= got_advs[0].stat %>" name="filter-for-advs" method="GET">
+                            <% }else{ %>
+                                <form action="/advs/<%= state %>" name="filter-for-advs" method="GET">
+                                    <% } %>
+                                        <div><span class="filter-title filter-main-title"><b>Фильтр:</b></span></div>
+                                        <hr>
+                                        <span class="filter-title"><b>Город</b></span><br>
+                                        <input type="text" id="filter-town" name="filtertown" value='Все города'><br>
+                                        <hr>
+                                        <span class="filter-title"><b>Категория</b></span><br>
+
+                                        <span onchange="filter_category('all')"><input required name="filtercategory"
+                                                id='must_to_choise' type="radio" value="Все"> <span>Все</span></span>
+                                        <br>
+
+
+
+                                        <span onchange="filter_category('transport')"><input name="filtercategory"
+                                                type="radio" value="Транспортные средства"> <span>Транспортные
+                                                средства</span></span> <br>
+
+                                        <span onchange="filter_category('electronic')"><input name="filtercategory"
+                                                type="radio" value="Электроника"> <span>Электроника</span> </span><br>
+                                        <span onchange="filter_category('realty')"><input name="filtercategory"
+                                                type="radio" value="Недвижимость">
+                                            <span>Недвижимость</span></span><br>
+                                        <span onchange="filter_category('economy')"><input name="filtercategory"
+                                                type="radio" value="Хозяйство">
+                                            <span>Хозяйство </span></span><br>
+                                        <span onchange="filter_category('hobby')"><input name="filtercategory"
+                                                type="radio" value="Досуг и хобби">
+                                            <span>Досуг и хобби</span></span><br>
+                                        <span onchange="filter_category('job')"><input name="filtercategory"
+                                                type="radio" value="Работа">
+                                            <span>Работа</span></span><br>
+
+                                        <span class="filter-title"><b>Артикул</b></span><br>
+                                        <input type="text" id="filter-art" name="filterart"><br>
+                                        <hr>
+
+                                        <input class='button-find ' type="submit" value="Найти"><br>
+                                        <hr>
+                                        <!-- <span class="filter-title"><b>Регион</b></span><br>
+                    <input type="text" id="filter-region" name="filter-region"><br>
+                    <hr> -->
+
+
+                </div>
+
+
+                <div class="all-adv">
+                    <div class="do-hidden-filter">
+
+                        <div class="type-transaction hidden-main for-hidden">
+                            <div class="all ">
+                                <p><input name="typetransaction" type="radio" value="Все сделки"> Все сделки
+                                </p>
+                            </div>
+                            <div class="sell ">
+                                <p><input name="typetransaction" type="radio" value="Продам"> Продам </p>
+                            </div>
+                            <div class="buy">
+                                <p><input name="typetransaction" type="radio" value="Куплю"> Куплю </p>
+                            </div>
+                            <div class="change">
+                                <p><input name="typetransaction" type="radio" value="Обмен">Обмен </p>
+                            </div>
+                            <div class="give">
+                                <p><input name="typetransaction" type="radio" value="Даром">Даром </p>
+                            </div>
+                            <div class="give-rent ">
+                                <p><input name="typetransaction" type="radio" value="Сдам в аренду"> Сдам в аренду </p>
+                            </div>
+                            <div class="take-rent">
+                                <p><input name="typetransaction" type="radio" value="Возьму в аренду"> Возьму в аренду
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="type-transaction hidden-for-work for-hidden">
+                            <div class="find-work ">
+                                <p><input name="typetransaction" type="radio" checked value="Ищу работу"> Ищу работу
+                                </p>
+                            </div>
+                            <div class="find-woker">
+                                <p><input name="typetransaction" type="radio" value="Ищу работника"> Ищу работника </p>
+                            </div>
+                        </div>
+
+
+                        <div class=" subhidden-for-transport for-hidden"
+                            data-tooltip="Oбязательное поле для данной категории">
+                            <div><span><input name="subfilter" type="radio" value="Автомобили"> Автомобили
+                                </span></div>
+                            <div><input name="subfilter" type="radio" value="Автомобильные запчасти"> Автомобильные
+                                запчасти </div>
+                            <div><input name="subfilter" type="radio" value="Водный транспорт и запчасти"> Водный
+                                транспорт и запчасти </div>
+                            <div><input name="subfilter" type="radio" value="Прицепы и дома">Прицепы и дома </div>
+                            <div><input name="subfilter" type="radio"
+                                    value="Мотоциклы, малая техника и запчасти">Мотоциклы, малая техника и запчасти
+                            </div>
+                            <div><input name="subfilter" type="radio" value="Воздушные транспортные средства и
+                            запчасти"> Воздушные транспортные средства и
+                                запчасти </div>
+                            <div><input name="subfilter" type="radio" value="Другие транспортные средства"> Другие
+                                транспортные средства
+                            </div>
+                        </div>
+                        <div class=" subhidden-for-electronic for-hidden"
+                            data-tooltip="Oбязательное поле для данной категории">
+                            <div><span><input name="subfilter" type="radio" value="Оргтехника"> Оргтехника </span></div>
+                            <div><input name="subfilter" type="radio" value="Компьютеры и комплектующие"> Компьютеры и
+                                комплектующие </div>
+                            <div><input name="subfilter" type="radio" value="Фото и видео"> Фото и видео </div>
+                            <div><input name="subfilter" type="radio" value="Телефоны и планшеты">Телефоны и планшеты
+                            </div>
+                            <div><input name="subfilter" type="radio" value="Телевизоры и ТВ-приставки">Телевизоры и
+                                ТВ-приставки </div>
+                            <div><input name="subfilter" type="radio" value="Другая электроника"> Другая электроника
+                            </div>
+                        </div>
+
+                        <div class=" subhidden-for-realty for-hidden"
+                            data-tooltip="Oбязательное поле для данной категории">
+                            <div><span><input name="subfilter" type="radio" value="Квартира"> Квартира </span></div>
+                            <div><input name="subfilter" type="radio" value="Дом"> Дом </div>
+                            <div><input name="subfilter" type="radio" value="Комната"> Комната </div>
+                            <div><input name="subfilter" type="radio" value="Участок">Участок </div>
+                            <div><input name="subfilter" type="radio" value="Коммерческая">Коммерческая </div>
+                        </div>
+
+                        <div class=" subhidden-for-economy for-hidden"
+                            data-tooltip="Oбязательное поле для данной категории">
+                            <div><span><input name="subfilter" type="radio" value="Искусство и антиквариа"> Искусство и
+                                    антиквариат
+                                </span>
+                            </div>
+                            <div><input name="subfilter" type="radio" value="Детские товары и игрушки"> Детские товары и
+                                игрушки </div>
+                            <div><input name="subfilter" type="radio" value="Одежда"> Одежда </div>
+                            <div><input name="subfilter" type="radio" value="Сад и огород">Сад и огород </div>
+                            <div><input name="subfilter" type="radio" value="Инструмент">Инструмент </div>
+                            <div><input name="subfilter" type="radio" value="Мебель">Мебель </div>
+                            <div><input name="subfilter" type="radio" value="Домашний декор">Домашний декор </div>
+                            <div><input name="subfilter" type="radio" value="Другое">Другое </div>
+                        </div>
+
+                        <div class=" subhidden-for-hobby for-hidden"
+                            data-tooltip="Oбязательное поле для данной категории">
+                            <div><span><input name="subfilter" type="radio" value="Журналы, книги и издания"> Журналы,
+                                    книги и издания </span>
+                            </div>
+                            <div><input name="subfilter" type="radio" value="Животные"> Животные </div>
+                            <div><input name="subfilter" type="radio" value="Хобби"> Хобби </div>
+                            <div><input name="subfilter" type="radio" value="Охота и рыбалка">Охота и рыбалка </div>
+                            <div><input name="subfilter" type="radio" value="Часы и ювелирные изделия">Часы и ювелирные
+                                изделия </div>
+                            <div><input name="subfilter" type="radio" value="Музыкальные инструменты">Музыкальные
+                                инструменты </div>
+                            <div><input name="subfilter" type="radio" value="Спорт">Спорт </div>
+                        </div>
+
+                        <div class=" subhidden-for-job for-hidden"
+                            data-tooltip="Необязательное поле для данной категории">
+
+                            <div><span><input name="subfilter" type="radio" value="Бухгалтерский учет и аудит">
+                                    Бухгалтерский учет и аудит </span>
+                            </div>
+                            <div><input name="subfilter" type="radio" value="IT, администрирование и поддержка"> IT,
+                                администрирование и поддержка </div>
+                            <div><input name="subfilter" type="radio" value="Реклама и маркетинг"> Реклама и маркетинг
+                            </div>
+                            <div><input name="subfilter" type="radio" value="Искусство и развлечение">Искусство и
+                                развлечение </div>
+                            <div><input name="subfilter" type="radio"
+                                    value="Автомобилестроение и механика">Автомобилестроение и механика </div>
+                            <div><input name="subfilter" type="radio" value="Уход за детьми">Уход за детьми </div>
+                            <div><input name="subfilter" type="radio" value="Обслуживание">Обслуживание </div>
+                            <div><input name="subfilter" type="radio" value="Гостиничный бизнес и туризм">Гостиничный
+                                бизнес и туризм </div>
+                            <div><input name="subfilter" type="radio" value="Мода и красота">Мода и красота </div>
+                            <div><input name="subfilter" type="radio" value="Графический дизайн и САПР">Графический
+                                дизайн и САПР </div>
+                            <div><input name="subfilter" type="radio" value="Управление персоналом">Управление
+                                персоналом </div>
+                            <div><input name="subfilter" type="radio"
+                                    value="Установка и техническое обслуживание">Установка и техническое обслуживание
+                            </div>
+                            <div><input name="subfilter" type="radio" value="Интернет и электронная коммерция">Интернет
+                                и электронная коммерция </div>
+                            <div><input name="subfilter" type="radio" value="Правоохранительные органы,
+                                государственное и муниципальное управление">Правоохранительные органы,
+                                государственное и муниципальное управление </div>
+                            <div><input name="subfilter" type="radio" value="Производство">Производство </div>
+                            <div><input name="subfilter" type="radio" value="Менеджмент и управление">Менеджмент и
+                                управление </div>
+                            <div><input name="subfilter" type="radio" value="Строительство">Строительство </div>
+                            <div><input name="subfilter" type="radio"
+                                    value="Горнодобывающая промышленность">Горнодобывающая промышленность </div>
+                            <div><input name="subfilter" type="radio"
+                                    value="Издательское дело, журналистика и СМИ">Издательское дело, журналистика и СМИ
+                            </div>
+                            <div><input name="subfilter" type="radio" value="Закупки и мерчендайзинг">Закупки и
+                                мерчендайзинг </div>
+                            <div><input name="subfilter" type="radio" value="Рестораны и общественное питание">
+                                Рестораны и общественное питание </div>
+                            <div><input name="subfilter" type="radio" value="Розничная и оптовая торговля">Розничная и
+                                оптовая торговля </div>
+                            <div><input name="subfilter" type="radio"
+                                    value="Транспортные и складские услуги">Транспортные и складские услуги </div>
+                            <div><input name="subfilter" type="radio" value="Ветеринарные услуги">Ветеринарные услуги
+                            </div>
+                            <div><input name="subfilter" type="radio" value="Работа на дому">Работа на дому </div>
+                            <div><input name="subfilter" type="radio" value="На всё согласен(на)">На всё согласен(на)
+                            </div>
+
+
+
+                        </div>
+
+                        </form>
+                    </div>
+
+
+
+                    <div class="close-open-filter"><span class=" close-filter" title="Скрыть блок"
+                            onclick="hidden_block_subfilter()">Скрыть</span></div>
+
+                    <span class="filter-title reg"><b>
+                            <% if (got_advs.length) { %>
+                                <%= got_advs[0].stat %> - <%= town %>
+
+                                        <% }else{ %>
+                                            <%= state %> - <%= town %>
+
+                                                    <% } %>
+
+                        </b></span>
+                    <div class="advs">
+                        <% if (got_advs.length) { %>
+                            <% got_advs.forEach(({ _id,category,file,subcategory,stat,town,name,phone,price,
+                                typeoftransaction,content,art,date,mark_rooms,model_squere,year_floor,autobody_balcony,
+                                color_street,running_numberfloors,title_adv })=>{ %>
+                                <div class="el-adv">
+                                    <img class="img_adv" src="../<%= file[0] %>" height="150">
+                                    <div class="block-adv-mini">
+                                        <div class="mini-line">
+                                            <div><a href="/adv/<%= art %>"><span class="title-blue-color">
+                                                        <%= title_adv %>.
+                                                    </span></a></div>
+                                            <% if (category=='Транспортные средства' ) { %>
+                                                <div><span class="title-blue-color">
+                                                        <%= mark_rooms[0] %>: <%= model_squere[0] %>.
+                                                                <%=autobody_balcony[0] %>. Год:<%=year_floor[0] %>.
+                                                                        Цвет: <%= color_street[0] %>. Пробег: <%=
+                                                                                running_numberfloors[0] %>
+                                                    </span></div>
+                                                <% }else if (category=='Недвижимость' ){ %>
+                                                    <div><span class="title-blue-color">
+                                                            <%= mark_rooms[1] %>-ком. <%= model_squere[1] %> м2.
+                                                                    Балкон/Лоджия:<%=autobody_balcony[1] %>. Этаж:
+                                                                        <%=year_floor[1] %>. Этажность: <%=
+                                                                                running_numberfloors[1] %>
+                                                        </span></div>
+                                                    <% } %>
+
+                                                        <div><span class="title-blue-color">Арт:</span> <span
+                                                                class="title-white-color">
+                                                                <%= art %>
+                                                            </span></div>
+
+                                        </div>
+                                        <div class="mini-line">
+                                            <% if (category !=='Транспортные средства' ){ %>
+
+                                                <div><span class="title-white-color">г. <%= town %>, ул.<%=
+                                                                color_street[1] %> </span></div>
+                                                <%} else { %>
+                                                    <div><span class="title-white-color">г. <%= town %> </span></div>
+                                                    <% } %>
+                                                        <div><span class="title-blue-color">Цена:</span> <span
+                                                                class="title-white-color">
+                                                                <%= price %>
+                                                            </span></div>
+                                        </div>
+
+                                        <div class="text-adv"><span class="title-white-color">
+                                                <%= content %> <span class="title-blue-color">...далее</span>
+                                            </span></div>
+                                        <div class="mini-line">
+                                            <div><span class="title-blue-color">
+                                                    <%= name %>:
+                                                </span><span class="title-white-color">
+                                                    <%= phone %>
+                                                </span></div>
+                                            <div><span class="title-blue-color">Дата подачи: </span><span
+                                                    class="title-white-color">
+                                                    <%= date %>
+                                                </span> </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <% }) %>
+
+                                    <% } else {%>
+                                        <span class="filter-title reg"><b> По таким параметрам объявления не
+                                                найдены</b></span>
+                                        <% } %>
+
+                    </div>
+
+                </div>
+
+                <div class="reclama two">
+                    <img src="../img/menu.png" onclick="open_categoris_service()" class='icon-menu menu-reclama'
+                        alt="menu" title="Выбрать категорию">
+                    <img src="../img/menu-green.png" onclick="open_categoris_service()" class='green' alt="menu">
+                    <div class="dropdown" id='icon-menu'>
+                        <ul>
+                            <li onclick="get_value_position(this.textContent) " id="point-clear">Отчистить</li>
+
+                            <li onclick="get_value_position(this.textContent) " id="point-zastr">Застройщики</li>
+
+
+                            <li onclick="get_value_position(this.textContent)" id="point-law">Услуги юриста</li>
+
+                            <li onclick="get_value_position(this.textContent)" id="point-realty">Агенства Недвижимости
+                            </li>
+
+
+                            <li onclick="get_value_position(this.textContent)" id="point-bilding">Строительные услуги
+                            </li>
+
+
+                            <li onclick="get_value_position(this.textContent)" id="point-transport">Транспортные услуги
+                            </li>
+
+
+                            <li onclick="get_value_position(this.textContent)">Гостиницы</li>
+
+                        </ul>
+                    </div>
+
+
+
+                    <div><span class="reclama-main-title"><b>Услуги </b></span></div>
+                    <div class='block-firm-info'>
+                        <div class="name-firm">
+                            <div class="close-info-firm" onclick="close_firm_info()"><img src="img/reset-model.png" alt=""></div>
+                            <p id="l-1"><b></b></p>
+                        </div>
+                        <div class="region-city">
+                            <p id="l-2"><i></i></p>
+                        </div>
+                        <hr class="g-line" noshade >
+
+                        <div class="discription">
+                            <p id="l-3"></p>
+                        </div>
+                        <hr class="g-line"  noshade>
+                        <div class="office-phone">
+                            <p id="l-4"></p</div>
+                            <div class="link">
+                                <p id="l-5"></p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="block-point-service">
+                        </div>
+
+
+                        <div><span class="reclama-main-title new-position" id="for_reclama">
+                                <% if (got_advs.length) { %>
+                                    <%= got_advs[0].stat %> - <%= town %>
+                                            <% }else{ %>
+                                                <%= state %> - <%= town %>
+                                                        <% } %>
+                            </span></div>
+                        <hr>
+                        <ul id="list_services">
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <%- include('./partials/footer.ejs') %>
+
+                    <script>
+                        if (window.performance) {
+                            let radios = document.getElementById('must_to_choise');
+                            radios.checked = 'checked';
+                            if ('<%= state.subject %>') {
+                                console.log('сработала 1 фукция')
+                                get_list('<%= state.subject %>', '<%= town %>');
+
+                            } else {
+                                console.log('сработала 2 фукция')
+                                get_list('<%= state %>', '<%= town %>');
+                            }
+                        }
+
+                    </script>
+</body>
+
+</html>

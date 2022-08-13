@@ -1,0 +1,88 @@
+/* -------------------------------меню-------------------- */
+.menu-reclama1{
+    /* position:absolute;
+    top: .6em;
+    left: .5em; */
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-left: 7px;
+    margin-top: 7px;
+
+}
+.menu-reclama1:hover .dropdown-posts{
+    display: none;
+ 
+}
+.green1{
+    position:absolute;
+    width: 30px;
+    height: 30px;
+    /* top: .6em;
+    left: .5em; */
+    display: none;
+    margin-left: 7px;
+    margin-top: 7px;
+
+}
+.dropdown-posts{
+    position:absolute;
+    margin-top: 10px;
+    top:29px;
+    left: 7px;
+    border:1px solid white;
+    display:none;
+    width: 200px;
+    background: #2E8CE3;
+}
+/* .two{
+    
+    position: relative;
+} */
+.dropdown-posts > ul{
+    padding-left: 15px;
+    margin: 0;
+}
+.dropdown-posts li{
+    padding: 5px 20px;
+    color:white;
+    list-style-type: none;
+    font-size:.83em;
+    cursor: pointer;
+    
+    
+}
+.dropdown-posts li:hover{
+    color:#15FC0A;
+}
+/* ---------------------посты---------------------------- */
+.post{
+    width: 96%;
+    /* border: 1px solid white; */
+    margin:10px auto;
+    height: 30vh;
+    padding:2%;
+    background:#529ee5;
+    color:white;
+}
+.post  span {
+    color:#193AEC;
+    font-style: italic; 
+    font-weight: bold;
+}
+/* .post span{
+    font-weight: normal;
+} */
+.read-more{
+    font-weight: normal;
+    font-size: 0.8em;
+}
+.all-posts{
+    border: none;
+}
+.block-category-date, .block-auther-source{
+    display: flex;
+    justify-content: space-between;
+}
+
+

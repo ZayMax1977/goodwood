@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/block-head.ejs') %>
+
+        <link rel="stylesheet" href="css/add-adv.css">
+        <link rel="stylesheet" href="css/advs.css">
+
+        <script src="js/dropdown-auto.js"></script>
+
+        <script src="js/category.js"></script>
+        <script src="js/get_state_town.js"></script>
+
+
+        <title>GoodWood | <%= title %>
+        </title>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+        <div class="block-create-add">
+            
+            <div class="zero-line">
+                <div>
+                    <a href="/"><button class="button-find know">На главную</button></a>
+                </div>
+                <div>
+                    <h3 class='decor  main-title'><b>Добавить объявление:</b></h3>
+                </div>
+
+            </div>
+            <!--enctype="multipart/form-data"  -->
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="six-line ">
+                    <div class="six-line-title decor">
+                        <p><b>Название объявления:</b></p>
+                    </div>
+                    <div class="six-line-price">
+                        <input type="text" id="title_adv" name="title_adv" required><br>
+
+                    </div>
+                </div>
+
+                <div class="first">
+
+                    <div class="first-line-left">
+                        <div class="block-choise-category">
+                            <p class="decor"><b>Категория</b></p>
+
+                            <p onchange="category('transport')"><input name="category" type="radio"
+                                    value="Транспортные средства" required> Транспортные средства </p>
+
+                            <p onchange='category("electronic")'><input name="category" type="radio"
+                                    value="Электроника"> Электроника </p>
+                            <p onchange='category("realty")'><input name="category" type="radio" value="Недвижимость">
+                                Недвижимость </p>
+                            <p onchange='category("economy")'><input name="category" type="radio" value="Хозяйство">
+                                Хозяйство </p>
+                            <p onchange='category("hobby")'><input name="category" type="radio" value="Досуг и хобби">
+                                Досуг и хобби </p>
+                            <p onchange='category("job")'><input name="category" type="radio" value="Работа"> Работа
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="first-line-right">
+                        <div class="car-subcategory" hidden>
+                            <p class="decor"><b>Подкатегория</b></p>
+                            <p><input name="subcategory" type="radio" value="Автомобили" required> Автомобили </p>
+                            <p><input name="subcategory" type="radio" value="Автомобильные запчасти"> Автомобильные
+                                запчасти </p>
+                            <p><input name="subcategory" type="radio" value="Водный транспорт и запчасти"> Водный
+                                транспорт и запчасти </p>
+                            <p><input name="subcategory" type="radio" value="Прицепы и дома"> Прицепы и дома </p>
+                            <p><input name="subcategory" type="radio" value="Мотоциклы, малая техника и запчасти">
+                                Мотоциклы, малая техника и запчасти</p>
+                            <p><input name="subcategory" type="radio" value="Воздушные транспортные средства и
+                            запчасти"> Воздушные транспортные средства и
+                                запчасти </p>
+                            <p><input name="subcategory" type="radio" value="Другие транспортные средства"> Другие
+                                транспортные средства </p>
+                        </div>
+
+
+                        <div class="electronic-subcategory" hidden>
+                            <p class="decor"><b>Подкатегория</b></p>
+                            <p><input name="subcategory" type="radio" value="Оргтехника" required> Оргтехника </p>
+                            <p><input name="subcategory" type="radio" value=" Компьютеры и комплектующие"> Компьютеры и
+                                комплектующие</p>
+                            <p><input name="subcategory" type="radio" value='Фото и видео'> Фото и видео </p>
+                            <p><input name="subcategory" type="radio" value="Телефоныsubcategoryншеты "> Телефоны и
+                                планшеты </p>
+                            <p><input name="subcategory" type="radio" value="Телевизоры и ТВ-приставки"> Телевизоры и
+                                ТВ-приставки </p>
+                            <p><input name="subcategory" type="radio" value="Другая электроника"> Другая электроника
+                            </p>
+                        </div>
+
+                        <div class="realty-subcategory" hidden>
+                            <p class="decor"><b>Подкатегория</b></p>
+                            <p><input  name="subcategory"  type="radio" value="Квартира" required> Квартира</p>
+                            <p><input  name="subcategory" type="radio" value="Дом"> Дом </p>
+                            <p><input  name="subcategory" type="radio" value="Комната"> Комната </p>
+                            <p><input  name="subcategory" type="radio" value="Участок"> Участок </p>
+                            <p><input  name="subcategory" type="radio" value="Коммерческая"> Коммерческая </p>
+                        </div>
+
+                        <div class="economy-subcategory" hidden>
+                            <p class="decor"><b>Подкатегория</b></p>
+                            <p><input name="subcategory" type="radio" value="Искусство и антиквариат" required>
+                                Искусство и антиквариат</p>
+                            <p><input name="subcategory" type="radio" value="Детские товары и игрушки"> Детские товары и
+                                игрушки </p>
+                            <p><input name="subcategory" type="radio" value="Одежда"> Одежда </p>
+                            <p><input name="subcategory" type="radio" value="Сад и огород"> Сад и огород </p>
+                            <p><input name="subcategory" type="radio" value="Инструмент"> Инструмент </p>
+                            <p><input name="subcategory" type="radio" value="Мебель"> Мебель </p>
+                            <p><input name="subcategory" type="radio" value="Домашний декор"> Домашний декор </p>
+                            <p><input name="subcategory" type="radio" value="Другое"> Другое </p>
+                        </div>
+
+                        <div class="hobby-subcategory" hidden>
+                            <p class="decor"><b>Подкатегория</b></p>
+                            <p><input name="subcategory" type="radio" value="Журналы, книги и издания" required>
+                                Журналы, книги и издания</p>
+                            <p><input name="subcategory" type="radio" value="Животные"> Животные </p>
+                            <p><input name="subcategory" type="radio" value="Хобби "> Хобби </p>
+                            <p><input name="subcategory" type="radio" value="Охота и рыбалка"> Охота и рыбалка </p>
+                            <p><input name="subcategory" type="radio" value="Часы и ювелирные изделия"> Часы и ювелирные
+                                изделия </p>
+                            <p><input name="subcategory" type="radio" value="Музыкальные инструменты"> Музыкальные
+                                инструменты </p>
+                            <p><input name="subcategory" type="radio" value="Спорт"> Спорт </p>
+                        </div>
+
+                        <div class="job-subcategory" hidden>
+                            <p class="decor"><b>Подкатегория</b></p>
+                            <p><input name="subcategory" type="radio" value="Бухгалтерский учет и аудит" required>
+                                Бухгалтерский учет и аудит</p>
+                            <p><input name="subcategory" type="radio" value="IT, администрирование и
+                            поддержка"> IT, администрирование и
+                                поддержка </p>
+                            <p><input name="subcategory" type="radio" value="Реклама и маркетинг"> Реклама и маркетинг
+                            </p>
+                            <p><input name="subcategory" type="radio" value="Искусство и развлечение"> Искусство и
+                                развлечение </p>
+                            <p><input name="subcategory" type="radio" value="Автомобилестроение и механика">
+                                Автомобилестроение и механика
+                            </p>
+                            <p><input name="subcategory" type="radio" value="Уход за детьми"> Уход за детьми </p>
+                            <p><input name="subcategory" type="radio" value=" Обслуживание"> Обслуживание </p>
+                            <p><input name="subcategory" type="radio" value="Здравоохранение">Здравоохранение</p>
+                            <p><input name="subcategory" type="radio" value="Гостиничный бизнес и туризм"> Гостиничный
+                                бизнес и туризм
+                            </p>
+                            <p><input name="subcategory" type="radio" value="Мода и красота"> Мода и красота </p>
+                            <p><input name="subcategory" type="radio" value="Графический дизайн и САПР"> Графический
+                                дизайн и САПР </p>
+                            <p><input name="subcategory" type="radio" value="Управление персоналом"> Управление
+                                персоналом </p>
+                            <p><input name="subcategory" type="radio" value="Установка и техническое
+                            обслуживание"> Установка и техническое
+                                обслуживание </p>
+                            <p><input name="subcategory" type="radio" value="Интернет и электронная
+                            коммерция"> Интернет и электронная
+                                коммерция </p>
+                            <p><input name="subcategory" type="radio" value="Правоохранительные органы,
+                            государственное и муниципальное управление"> Правоохранительные органы,
+                                государственное и муниципальное управление </p>
+                            <p><input name="subcategory" type="radio" value="Производство"> Производство </p>
+                            <p><input name="subcategory" type="radio" value="Менеджмент и управление"> Менеджмент и
+                                управление </p>
+                            <p><input name="subcategory" type="radio" value="Строительство"> Строительство </p>
+                            <p><input name="subcategory" type="radio" value="Горнодобывающая промышленность">
+                                Горнодобывающая промышленность</p>
+                            <p><input name="subcategory" type="radio" value="Издательское дело, журналистика и СМИ">
+                                Издательское дело, журналистика и СМИ
+                            </p>
+                            <p><input name="subcategory" type="radio" value="Закупки и мерчендайзинг">Закупки и
+                                мерчендайзинг </p>
+                            <p><input name="subcategory" type="radio" value="Рестораны и общественное питание">
+                                Рестораны и общественное питание </p>
+                            <p><input name="subcategory" type="radio" value="Розничная и оптовая торговля"> Розничная и
+                                оптовая торговля</p>
+                            <p><input name="subcategory" type="radio" value="Транспортные и складские услуги">
+                                Транспортные и складские услуги</p>
+                            <p><input name="subcategory" type="radio" value="Ветеринарные услуги">Ветеринарные услуги
+                            </p>
+                            <p><input name="subcategory" type="radio" value="Работа на дому"> Работа на дому </p>
+
+                            <p><input name="subcategory" type="radio" value="На всё согласен(на)"> На всё согласен(на)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ---------------------------вторая линия подать объявление-------------------------------------------- -->
+                <div class='discribe-for-car'>
+                    <div class="car-model">
+                        <input type="text" name="mark_rooms" id="hidden_mark">
+                        <p class='title ' ><img  src='img/string.png' onclick="show_models()"  width="15" height="15" class="drop-string" ><span  id='car_mark' class="decor"><b>Марка:&nbsp; </span><span id="mark"></span></b>
+                            &nbsp;<img  onclick="res_model()" src='img/reset-model.png'  width="15" height="15" id="reset_model">
+                        </p><br>
+                        <p class='title ' ><img  src='img/string-green.png' onclick="show_models()"  width="15" height="15" class="drop-string-green" >
+
+                        <div class="dropdownModel" >
+                            <div class="model-col-1">
+                                <ul>
+                                    <li onclick="get_model('Acura')">Acura</li>
+                                    <li onclick="get_model('Alfa Romeo')">Alfa Romeo</li>
+                                    <li onclick="get_model('Alpina')">Alpina </li>
+                                    <li onclick="get_model('Aleine')">Aleine </li>
+                                    <li onclick="get_model('Aston Martin')">Aston Martin</li>
+                                    <li onclick="get_model('Audi')">Audi </li>
+                                    <li onclick="get_model('Aurus')">Aurus</li>
+                                    <li onclick="get_model('Bajaj')">Bajaj </li>
+                                    <li onclick="get_model('Bentley')">Bentley</li>
+                                    <li onclick="get_model('BMW')" >BMW </li>
+                                    <li onclick="get_model('BYD')">BYD </li>
+                                    <li onclick="get_model('Bugatti')">Bugatti</li>
+                                    <li onclick="get_model('Cadillac')">Cadillac</li>
+                                    <li onclick="get_model('Caterham')">Caterham</li>
+                                    <li onclick="get_model('Changan')">Changan</li>
+                                    <li onclick="get_model('Chery')">Chery</li>
+
+                                </ul>
+                            </div>
+                            <div class="model-col-2">
+                                <ul>
+                                    <li onclick="get_model('CheryExeed')">CheryExeed</li>
+                                    <li onclick="get_model('Chevrolet')">Chevrolet </li>
+                                    <li onclick="get_model('Chrysler')">Chrysler </li>
+                                    <li onclick="get_model('Citroen')">Citroen</li>
+                                    <li onclick="get_model('Chery')">Daewoo </li>
+                                    <li onclick="get_model('Daewoo')">Daihatsu</li>
+                                    <li onclick="get_model('Dartz Motors')">Dartz Motors </li>
+                                    <li onclick="get_model('Datsun')">Datsun</li>
+                                    <li onclick="get_model('DFM')">DFM<li>
+                                    <li onclick="get_model('Dodge')">Dodge </li>
+                                    <li onclick="get_model('DS')">DS</li>
+                                    <li onclick="get_model('FAW')">FAW</li>
+                                    <li onclick="get_model('Ferrari')">Ferrari</li>
+                                    <li onclick="get_model('Fiat')">Fiat</li>
+                                    <li onclick="get_model('Ford')">Ford</li>
+                                    <li onclick="get_model('Foton')">Foton</li>
+
+                                </ul>
+                            </div>
+                            <div class="model-col-3">
+                                <ul>
+                                    <li onclick="get_model('GAC')">GAC </li>
+                                    <li onclick="get_model('GAZ')">GAZ </li>
+                                    <li onclick="get_model('Geely')">Geely</li>
+                                    <li onclick="get_model('Genesis')">Genesis </li>
+                                    <li onclick="get_model('GMC')">GMC</li>
+                                    <li onclick="get_model('Great Wall')">Great Wall </li>
+                                    <li onclick="get_model('GTA Motor')">GTA Motor</li>
+                                    <li onclick="get_model('Hafei')">Hafei </li>
+                                    <li onclick="get_model('Haima')">Haima </li>
+                                    <li onclick="get_model('Haval')">Haval</li>
+                                    <li onclick="get_model('Hawtai')">Hawtai</li>
+                                    <li onclick="get_model('Hennessey')">Hennessey</li>
+                                    <li onclick="get_model('Honda')">Honda</li>
+                                    <li onclick="get_model('Hummer')">Hummer</li>
+                                    <li onclick="get_model('Hyundai')">Hyundai</li>
+                                    <li onclick="get_model('Icona')">Icona </li>
+
+                                </ul>
+                            </div>
+                            <div class="model-col-4">
+                                <ul>
+                                    <li onclick="get_model('Infiniti')">Infiniti </li>
+                                    <li onclick="get_model('Iran Khodro')">Iran Khodro</li>
+                                    <li onclick="get_model('Isuzu')">Isuzu </li>
+                                    <li onclick="get_model('JAC')">JAC</li>
+                                    <li onclick="get_model('Jaguar')">Jaguar </li>
+                                    <li onclick="get_model('Jeep')">Jeep</li>
+                                    <li onclick="get_model('KIA')">KIA </li>
+                                    <li onclick="get_model('Koenigsegg')">Koenigsegg </li>
+                                    <li onclick="get_model('Lada')">Lada</li>
+                                    <li onclick="get_model('Lamborghini')">Lamborghini </li>
+                                    <li onclick="get_model('Land Rover')">Land Rover</li>
+                                    <li onclick="get_model('Lexus')">Lexus</li>
+                                    <li onclick="get_model('LIFAN')">LIFAN</li>
+                                    <li onclick="get_model('Lincoln')">Lincoln</li>
+                                    <li onclick="get_model('Lotus')">Lotus </li>
+                                    <li onclick="get_model('Luxgen')">Luxgen </li>
+
+                                </ul>
+                            </div>
+                            <div class="model-col-4">
+                                <ul>
+                                    <li onclick="get_model('Marussia')">Marussia </li>
+                                    <li onclick="get_model('Maserati')">Maserati </li>
+                                    <li onclick="get_model('Maybach')">Maybach</li>
+                                    <li onclick="get_model('Mazda')">Mazda </li>
+                                    <li onclick="get_model('Mazzanti')">Mazzanti</li>
+                                    <li onclick="get_model('McLaren')">McLaren </li>
+                                    <li onclick="get_model('Mercedes-Benz')">Mercedes-Benz </li>
+                                    <li onclick="get_model('MG Cars')">MG Cars</li>
+                                    <li onclick="get_model('Mini')">Mini</li>
+                                    <li onclick="get_model('Mitsubishi')">Mitsubishi</li>
+                                    <li onclick="get_model('Nissan')">Nissan</li>
+                                    <li onclick="get_model('Opel')">Opel</li>
+                                    <li onclick="get_model('Pagani')">Pagani</li>
+                                    <li onclick="get_model('Peugeot')">Peugeot </li>
+                                    <li onclick="get_model('PGO')">PGO </li>
+                                    <li onclick="get_model('Porsche')">Porsche</li>
+
+                                </ul>
+                            </div>
+                            <div class="model-col-4">
+                                <ul>
+                                    <li onclick="get_model('Proton')">Proton </li>
+                                    <li onclick="get_model('Qoros')">Qoros</li>
+                                    <li onclick="get_model('Ravon')">Ravon </li>
+                                    <li onclick="get_model('Renault')">Renault</li>
+                                    <li onclick="get_model('Rolls-Royce')"> Rolls-Royce </li>
+                                    <li onclick="get_model('Saab')">Saab </li>
+                                    <li onclick="get_model('Samsung')">Samsung</li>
+                                    <li onclick="get_model('SEAT')">SEAT</li>
+                                    <li onclick="get_model('SeAZ')">SeAZ</li>
+                                    <li onclick="get_model('Skoda')">Skoda</li>
+                                    <li onclick="get_model('Smart')">Smart</li>
+                                    <li onclick="get_model('SsangYong')">SsangYong</li>
+                                    <li onclick="get_model('Peugeot')">Peugeot </li>
+                                    <li onclick="get_model('Subaru')">Subaru </li>
+                                    <li onclick="get_model('Suzuki')">Suzuki</li>
+                                    <li onclick="get_model('TagAZ')">TagAZ </li>
+
+                                </ul>
+                            </div>
+                            <div class="model-col-5">
+                                <ul>
+                                    <li onclick="get_model('Tata')">Tata</li>
+                                    <li onclick="get_model('Tesla Motors')">Tesla Motors </li>
+                                    <li onclick="get_model('Toyota')">Toyota</li>
+                                    <li onclick="get_model('Troller')">Troller </li>
+                                    <li onclick="get_model('TVR')">TVR </li>
+                                    <li onclick="get_model('Volkswagen')">Volkswagen </li>
+                                    <li onclick="get_model('Volvo')">Volvo</li>
+                                    <li onclick="get_model('W Motors')">W Motors</li>
+                                    <li onclick="get_model('Wiesmann')">Wiesmann</li>
+                                    <li onclick="get_model('ZAZ')">ZAZ</li>
+                                    <li onclick="get_model('Zotye')">Zotye</li>
+                                    <li onclick="get_model('ZXAuto')">ZXAuto </li>
+                                    <li onclick="get_model('Ё-авто')">Ё-авто </li>
+                                    <li onclick="get_model('УАЗ')">УАЗ</li>
+                                    <li onclick="get_model('Другое авто')">Другое авто</li>
+
+
+                                </ul>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class='decor'><b>Модель:</b>
+                            &nbsp;<input type="text" id="car_model" name="model_squere">
+                        </p> <br>
+                    </div>
+                    <div>
+                        <p class='decor'><b>Год:</b>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="car_year" name="year_floor"></p> <br>
+                    </div>
+                    <div>
+                        <p class='decor'><b>Кузов:</b>
+                            &nbsp;<input type="text" id="car_body" name="autobody_balcony"></p> <br>
+                    </div>
+                    <div>
+                        <p class='decor'><b>Цвет:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" id="car_color" name="color_street"></p> <br>
+                            
+
+                    </div>
+                    <div>
+                        <p class=' decor'><b>Пробег :</b>
+                            &nbsp;<input type="text" id="car_running" name="running_numberfloors"></p> <br>
+
+                    </div>
+                </div>
+
+                <div class="for-flat">
+                    <div class="rooms">
+                        <p class='decor'><b>Комнат:</b>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" id="rooms" name="mark_rooms">
+                        </p> <br>
+                    </div>
+                    <div class="square">
+                        <p class='decor'><b>Площадь (м2):</b>
+                            &nbsp; <input type="text" id="square" name="model_squere">
+                        </p> <br>
+                    </div>
+                    <div class="floor">
+                        <p class='decor'><b>Этаж:</b>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="floor" name="year_floor">
+                        </p> <br>
+                    </div>
+                    <div class="balcony">
+                        <p class='title decor'><b>Балкон/Лоджия:</b>
+                            &nbsp;<input type="text" id="balcony" placeholder="да/нет" name="autobody_balcony">
+                        </p> <br>
+                    </div>
+                    <div class="street">
+                        <p class='decor'><b>Улица:</b>
+                            &nbsp;&nbsp;<input type="text" id="street" name="color_street">
+                        </p> <br>
+                    </div>
+                    <div class="floors">
+                        <p class='decor'><b>Этажность:</b>
+                            &nbsp;<input type="text" id="floors" name="running_numberfloors">
+                        </p> <br>
+                    </div>
+                </div>
+
+                
+                <div class="second-line">
+                    <div class="second-line-title decor">
+                        <p><b>Вид сделки</b></p>
+                    </div>
+                    <div class="sell ">
+                        <p><input name="typeoftransaction" type="radio" value="Продам" required> Продам </p>
+                    </div>
+                    <div class="buy">
+                        <p><input name="typeoftransaction" type="radio" value="Куплю"> Куплю </p>
+                    </div>
+                    <div class="change">
+                        <p><input name="typeoftransaction" type="radio" value="Обмен">Обмен </p>
+                    </div>
+                    <div class="give">
+                        <p><input name="typeoftransaction" type="radio" value="Даром">Даром </p>
+                    </div>
+                    <div class="rent">
+                        <p><input name="typeoftransaction" type="radio" value="Возьму в аренду">Возьму в аренду </p>
+                    </div>
+                    <div class="rentout">
+                        <p><input name="typeoftransaction" type="radio" value="Сдам">Сдам </p>
+                    </div>
+                </div>
+
+                <div class="second-line-for-job ">
+                    <div class="second-line-title decor">
+                        <p><b>Вид предложения</b></p>
+                    </div>
+                    <div class="find-work ">
+                        <p><input name="typeoftransaction" type="radio" value="Ищу работу"> Ищу работу </p>
+                    </div>
+                    <div class="find-woker">
+                        <p><input name="typeoftransaction" type="radio" value="Ищу работника"> Ищу работника </p>
+                    </div>
+                </div>
+                <!-- ------------------------третья линия------------------------------------------------------------------ -->
+                <div class="third-line ">
+
+
+                    <div class="third-line-title-left decor"><b>Регион</b></div>
+
+                    <div class="third-line-title-right decor"><b>Город</b></div>
+
+                    <div class="third-line-left">
+                        <input type="text" id="stat" name="stat" onkeyup="catch_simbol(event)"
+                            placeholder="Пример: Ростовская область" required>
+
+                        <div class="confirmation">
+                            <div id="coincidence_state" onclick="agree()" class="st"></div>
+                        </div>
+                    </div>
+
+                    <div class="third-line-right">
+                        <input type="text" id="town" name="town" required><br>
+
+                    </div>
+                </div>
+
+                <!-- ------------------------четвертая линия------------------------------------------------------------------ -->
+                <div class="fourth-line ">
+
+
+                    <div class="fourth-line-title-left decor"><b>Имя</b></div>
+
+                    <div class="fourth-line-title-right decor"><b>Телефон</b></div>
+
+                    <div class="fourth-line-left">
+                        <input type="text" id="name" name="name" required>
+
+
+                    </div>
+
+                    <div class="fourth-line-right">
+                        <input type="tel" id="phone" name="phone" placeholder="Пример: 89182039445" required><br>
+
+                    </div>
+                </div>
+                <!-- ------------------------пятая линия (текст объявления)------------------------------------------------------------------ -->
+
+                <div class="fifth-line ">
+                    <div class="fifth-line-title decor">
+                        <p><b>Текст объявления</b></p>
+                    </div>
+                    <textarea class="textarea" name="content" required>  </textarea>
+                </div>
+                <!-- ------------------------шестая линия (цена)------------------------------------------------------------------ -->
+                <div class="six-line ">
+                    <div class="six-line-title decor">
+                        <p><b>Цена</b></p>
+                    </div>
+                    <div class="six-line-price">
+                        <input type="number" id="price" name="price"><br>
+
+                    </div>
+                </div>
+                <!-- ------------------------седьмая линия (фото)------------------------------------------------------------------ -->
+                <div class="seven-line ">
+                    <div class="seven-line-title ">
+                        <p>Добавить фото (выбираются одновременно все необходимые фото)</p>
+                        <p>Размер фото не менее 512*342 пикселей.</p>
+                        <p>Максимальное количество фотографий - 12 шт.</p>
+
+
+                    </div>
+                    <div class="seven-line-foto">
+
+                        <input type="file" id="file" name="file" multiple><br>
+                        <div class="plus" onclick="get_text_photo()">Подтвердить</div>
+
+                        <!-- multiple accept="image/*,image/jpeg" -->
+
+
+                        <div class="instant-button button-find">
+                            выбрать...
+                        </div>
+                    </div>
+                    <div class="choose-files">Количество файлов:</div>
+                </div>
+
+                <!-- ---------------кнопки отчистить и отослать------------------------------------------------------- -->
+                <div class="clear-send">
+                    <input class="button-find-clear" type="reset" value="Отчистить форму" onclick="del_files()">
+                    <input class="button-find button-find-send" type="submit" value="Отправить">
+
+                </div>
+
+            </form>
+        </div>
+
+        <%- include('./partials/footer.ejs') %>
+
+
+            <script>
+                if (window.performance) {
+                    let radios = document.querySelectorAll('input[type="radio"]');
+
+                    for (let radio of radios) {
+                        if (radio.checked) {
+                            radio.checked = false;
+                        }
+                    }
+                }
+            </script>
+</body>
+
+</html>

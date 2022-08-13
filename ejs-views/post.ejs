@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/block-head.ejs') %>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/adv.css">
+    <link rel="stylesheet" href="../css/advs.css">
+
+    <script src="../js/menu.js"></script>
+
+    <script src="../js/reclama.js"></script>
+    <script src="../js/posts.js"></script>
+    <link rel="stylesheet" href="../css/post.css">
+
+
+
+    <title>GoodWood | <%= title %></title>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/block-popular.ejs') %>
+
+
+    <div class="main-block ">
+        <div class="filter"></div>
+        <div class="all-adv all-posts">
+           
+            
+                <img src="../img/menu.png"  onclick="open_categoris_service1()"  class='icon-menu1 menu-reclama1'    alt="menu" title="Выбрать категорию">
+                <img src="../img/menu-green.png"   onclick="open_categoris_service1()"  class='green1' alt="menu">
+                
+                <div class="dropdown-posts"  id='icon-menu1' >
+                    <ul >
+                        <li>Все статьи</li>
+
+                        <li>Трудовые отношения</li>
+                        <li>Гражданские отношения</li>
+                        <li>Жилищные отношения</li>
+                        <li>Налоговые отношения</li>
+                        <li>Земельные отношения</li>
+                        <li>Семейные отношения</li>
+                        <li>Защита прав потребителя</li>
+                        <li>Вопросы сферы недвижимости</li>
+                        <li>Маршрутами путешественника</li>
+                        <li>"Черный список"</li>
+                    </ul>             
+                </div>
+
+                <article class="post">
+                        <div class="title-post">  <h2><%= items.title %></h2></div>
+                        <div class="block-category-date">
+                            <div class="category-post"> <i>Категория:</i> <span><%= items.category %></span></div>
+                            <div class="date-post"><span><%= items.date %></span></div>
+                        </div>
+                        <div class="content-post"><p><%= items.content %><span class="read-more">...Читать долее</span></p></div>
+                        <div class="block-auther-source">
+                            <div class="auther-post"><i><span><%= items.author %></span></i></div>
+                            <div class="source-post"><i>Источник:&nbsp;</i>  <span><%= items.source %></span></div>
+                        </div>
+
+                </article>
+            
+         </div>   
+
+        <div class="reclama two">
+            <div><span class="reclama-main-title"><b>Услуги </b></span></div>
+            <div ><span class="reclama-main-title new-position"><i>Город: <span>Краснодар</span></i></span></div>
+                <img src="../img/menu.png"  onclick="open_categoris_service()"  class='icon-menu menu-reclama'    alt="menu" title="Выбрать категорию">
+                <img src="../img/menu-green.png"   onclick="open_categoris_service()"  class='green' alt="menu">
+            <div class="dropdown"  id='icon-menu' >
+                <ul >
+                    <a href=""><li>Застройщики</li></a>
+                    <a href=""><li>Услуги юриста</li></a>
+                    <a href=""><li>Агенства Недвижимости</li></a>
+                    <a href=""><li>Строительные услуги</li></a>
+                    <a href=""><li>Транспортные услуги</li></a>
+                    <a href=""><li>Гостиницы</li></a>
+                </ul>
+            </div>
+        <hr>
+               
+
+       </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=PT+Serif&display=swap');
+
+
+body{
+    
+    min-height: 100vh;
+    /* scroll-behavior: smooth; */
+    /* text-rendering: optimizeSpeed; */
+    line-height: 1.5;
+    background: linear-gradient(to top, #4C74CD, #C7D3EF);
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1em;
+}
+header{
+   
+
+    display: grid;
+    position: relative;
+    grid-template-columns:50px auto 175px 175px 90px 1fr;
+    grid-template-rows: 50px;
+    border-bottom: 1px solid white ;
+    width: 100%;
+    
+
+}
+.header-item{
+    display:flex;
+    justify-content: flex-end;
+    /* text-align: right; */
+    padding: 10px;
+}
+.block-logo{
+    position:absolute;
+    top: 0;
+    left: 0;
+
+}
+.block-logo > a{
+    cursor: pointer;
+}
+.title-slogan{
+    display: grid;
+    grid-template-columns:100%;
+    grid-template-rows: 2fr;
+    text-align: left;
+    font-family: 'PT Serif', serif;
+    line-height: 0.8;
+    color: white;
+
+}
+.block-title {
+    font-size: 1.7em;
+}
+.block-slogan{
+    font-size: .9em;
+}
+
+/*--------------------------------форма поиска-----------------------------------*/
+.form-where-find, .form-what-find {
+    width: 110px;
+    border: 2px solid #4C74CD;
+    border-radius: 4px;
+    font-size: 11px;
+    background-color: white;
+    background-image: url('../img/loon-icon.png');
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    height: 2px;
+    color: #3754DB;
+    }
+  
+/* ---------------------------------кнопка найти объявление  и добавить--------------------------------------------------- */
+.button-find {
+    background: #2E8CE3;
+    padding: 5px 7px;
+    font-size: .8em; 
+    font-weight: bold;
+    color: #FFFFFF;
+    border: outset 2px #73C8F0;
+    cursor: pointer; 
+    margin-left: 0.5em;
+    /* text-align: right; */
+    }
+  .button-find:hover { 
+    background: #2E69E3; 
+    background: -moz-linear-gradient(0% 100% 90deg, #2E69E3, #59C2FF);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#59C2FF), to(#2E69E3));
+    }
+      
+  .button-find:active {
+    background:#15FC0A;
+  }
+
+.icon-menu{
+    width: 30px;
+    height: 30px;
+  
+    
+    /* display:none; */
+}
+
+.one{
+    position: relative;
+    display:none;
+}
+
+.one:hover  .dropdown-menu, .one:hover{
+    display: block;
+    cursor: pointer;
+ 
+}
+.one:hover .icon-menu {
+    display: none;
+}
+.one:hover .icon-menu-green {
+    display: block;
+}
+
+
+    
+.dropdown-menu{
+    position:absolute;
+    margin-top: 29px;
+    top:0;
+    right: 0;
+    z-index: 1000;
+    border:1px solid white;
+    display:none;
+    width: 200px;
+    background: #2E8CE3;
+}
+.dropdown-menu > ul{
+    padding-left: 15px;
+    margin: 0;
+}
+.dropdown-menu li{
+    padding: 5px 20px;
+    
+    
+}
+.dropdown-menu a{
+    list-style-type: none;
+    text-decoration: none;
+    color:#FFFFFF;
+    font-size: 0.83em;
+}
+.dropdown-menu li:hover{
+    color:#15FC0A;
+}
+.icon-menu-green{
+    display:none;
+    width: 30px;
+    height: 30px;
+}
+
+
+
+  /* ----------- блок главный------------- */
+main{
+    /* background-image: url(../img/bg-test.png); */
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows:  1fr 8fr;
+    grid-template-areas: 
+        'popular popular'
+        'map states';
+    border-bottom: 1px solid white ;
+}
+
+
+.block-popular, .block-map, .block-states{
+    padding:10px;
+    margin: 0 0 15px 0;
+}
+
+.block-popular{
+    grid-area: popular;
+    text-align: center;
+}
+.block-map{
+    grid-area: map;
+}
+.block-states{
+    grid-area: states;
+}
+.block-states-mobile{
+    display:none;
+}
+/*--------------блок популярное ------------*/
+
+.popular-elem{
+    color: white;
+    
+}
+.block-popular a:hover{
+    color:#15FC0A;
+}
+/*--------------блок карта ------------*/
+svg {
+    -webkit-filter: drop-shadow( 2px 2px 3px  white );
+    filter: drop-shadow( 2px 2px 3px  white );
+    }
+  svg .fon {
+    fill: #3754DB;
+    }
+  svg .fon:hover { 
+    fill: #15FC0A;
+    cursor: pointer;
+    }
+   svg path {
+    stroke:white;
+    stroke-width:0.06%;
+   }
+
+/*--------------блок субъекты ------------*/
+
+.block-states{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:  1fr;
+}
+.title-state{
+    color: #1900EE
+}
+.block-states li, .block-states-mobile li{
+    color:#FFFFFF;
+    text-decoration:none;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+.block-states li:hover, .block-states-mobile li:hover{
+    color:#15FC0A;
+  }
+
+ 
+  
+/*--------------блок категории ------------*/
+
+.title-category{
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    color:white;
+}
+
+.category{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr  6fr;
+    grid-template-areas: 
+        'title title title title title'
+        'col-1 col-2 col-3 col-4 col-5';
+
+    border-bottom: 1px solid white ;
+
+}
+
+.title-category{
+    grid-area: title;
+    text-align: center;
+
+    /* border: 2px dashed white;  */
+}
+
+.col-1{
+    grid-area: col-1;
+    padding-left: 1em;
+
+}
+.col-2{
+    grid-area: col-2;
+
+}
+.col-3{
+    grid-area: col-3;
+}
+.col-4{
+    grid-area: col-4;
+}
+.col-5{
+    grid-area: col-5;
+}
+.col{
+    padding-left: 2em;
+    line-height: 1em;
+
+}
+.group-category{
+    font-size: 14px;
+    color:#0000ED;
+    font-family: 'Lato', sans-serif;
+    }
+
+.category a {
+    font-size: 12px;
+    text-decoration:none;
+    color:white;
+    font-family: 'Lato', sans-serif;
+    text-align: left;
+    
+}
+
+.category a:hover{
+    color:#15FC0A;
+  }
+
+footer{
+    
+    display: grid;
+    grid-template-columns:100%;
+    grid-template-rows: 1fr;
+    border-top: 1px solid white ;
+    text-align: center;
+}
+footer div{
+    text-decoration:none;
+    color:#FFFFFF;
+}
+footer a{
+    text-decoration:none;
+    color:#FFFFFF;
+}
+footer a:hover{
+    color:#15FC0A;
+}
+/* --------------------------------всплывающее окно названия субъекта--------------- */
+#name_state{
+    width: 100px;
+    height: 66px;
+    /* z-index: 100; */
+    margin-left: 30%;
+
+}
